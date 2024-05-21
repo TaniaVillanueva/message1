@@ -7,9 +7,15 @@
           <div class="ui simple dropdown item">
             Account <i class="dropdown icon"></i>
             <div class="menu">
-              <a class="item">Log Out</a>
-              <a class="item">Log In</a>
-              <a class="item">Sign Up</a>
+              <% if logged_in? %>
+               
+                <%= link_to "Logout", logout_path, class: "item", data: {turbo_method: :delete} %>
+                
+              <% else %>
+                <%= link_to "Login", login_path, class: "item"%>
+                
+
+              <% end %>
             </div>
           </div>
           <div class="item">
